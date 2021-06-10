@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %} Confirmação de Exclusão {% endblock %}
+
+{% block content %}
+
+<div class="col text-center py-5">
+    <form action="" method="POST" accept-charset="utf-8">
+        {% csrf_token %}
+        <h3 class="mb-4">Você quer mesmo remover o usuário <strong>{{ user.description }}</strong>?</h3>
+        <button type="submit" class="btn btn-danger btn-lg">Sim</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,8 @@
+python manage.py runserver
+python manage.py createsuperuser
+
+http://localhost:8000/admin/
+
+template: JINJA
+
+a cada alteração de pasta, o projeto deve ser rebuildado

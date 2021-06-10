@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} Lista de Usuários {% endblock %}
+
+{% block content %}
+<div class="row py-4">
+    <div class="col col-6">
+        <h2>Lista de Usuários</h2>
+    </div>
+    <div class="col col-6 text-right">
+        <a href="{% url 'create_user' %}" class="btn btn-primary">Novo Usuário</a>
+    </div>
+</div>
+<ul class="list-group mb-3">
+    {% for user in users %}
+    <li class="list-group-item d-flex justify-content-between hoverable">
+        <div>
+            <h6 class="my-0">{{ user.description }}</h6>
+            <small class="text-muted">{{ user.age }} anos</small>
+        </div>
+        <span class="text-muted pt-2">
+            <a href="{% url 'update_user' user.id %}">Editar</a>
+        </span>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

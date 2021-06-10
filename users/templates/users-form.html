@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block title %} Confirmação de Exclusão {% endblock %}
+
+{% block content %}
+    <div class="row py-4">
+        <div class="col col-6">
+            <h2>Novo / Atualizar Usuário</h2>
+        </div>
+        <div class="col col-6 text-right">
+            <button class="btn btn-info mr-4">Voltar</button>
+            {% if user %}
+                <a href="{% url 'delete_user' user.id %}" title="" class="btn btn-danger">Deletar</a>
+            {% endif %}
+        </div>
+    </div>  
+    <br />
+    <form action="" method="POST" accept-charset="utf-8">
+        <div class="mb-3">
+            <!-- protecao automatica do django contra ataques cross site request forgery -->
+            {% csrf_token %}
+            {{ form|bootstrap }}
+            <div class="row">
+                <div class="col text-right">
+                    <button type="submit" class="btn btn-lg btn-primary btn-block">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
